@@ -7,10 +7,10 @@
         printf("Connection failed: %s\n", $mysqli->connect_error);
         exit();
     }
-    $userQuery = "SELECT user_id FROM Users";
+    $userQuery = "SELECT * FROM Users";
     if($queryResult = $mysqli->query($userQuery))
     {
-        while($row = $result->fetch_assoc())
+        while($row = $queryResult->fetch_assoc())
         {
             printf("<tr><td>%s</td></tr>", $row["user_id"]);
         }
